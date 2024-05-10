@@ -10,6 +10,7 @@ interface AdviceType {
 }
 function App() {
   const [advice, setAdvice] = useState<AdviceType>();
+  const [count, setCount] = useState<number>(0);
   useEffect(() => {
     const fetchData = async () => {
       const response = await fetch("	https://api.adviceslip.com/advice");
@@ -17,13 +18,13 @@ function App() {
       setAdvice(data);
     };
     fetchData();
-  }, []);
+  }, [count]);
   return (
     <Container>
       <h1> advice #{advice?.slip.id}</h1>
       <p>{advice?.slip.advice}</p>
       <img src={divider} alt="" />
-      <Circle>
+      <Circle onClick={() => setCount((prev) => prev + 1)}>
         <img src={dice} alt="" />
       </Circle>
     </Container>

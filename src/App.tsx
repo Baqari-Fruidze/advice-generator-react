@@ -43,6 +43,9 @@ const Circle = styled.div`
   width: 6.4rem;
   height: 6.4rem;
   flex-shrink: 0;
+  &:hover {
+    cursor: pointer;
+  }
 `;
 const Container = styled.div`
   display: flex;
